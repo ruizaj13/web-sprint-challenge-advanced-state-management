@@ -4,7 +4,7 @@ class AddForm extends React.Component {
 
     render() {
         return(<section>
-            <h2>Add Smurf</h2>
+            <h1>Add Smurf</h1>
             <form>
                 <div className="form-group">
                     <label htmlFor="name">Name:</label><br/>

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {getSmurf} from '../actions/index'
 
-export const Smurfs = ({getSmurf, error, isFetching, smurfData }) => {
+const Smurfs = ({getSmurf, error, isFetching, smurfData }) => {
    
     useEffect(() => {
         getSmurf()
@@ -19,20 +19,20 @@ export const Smurfs = ({getSmurf, error, isFetching, smurfData }) => {
 
 
 
-    return(<div data-testid="smurf" className="card">
-        <h2>Villagers</h2>
-        {smurfData.map((smurf => {
+    return(
+    <div data-testid="smurf" className="card" style={{textAlign: 'center'}}>
+        <h1>Villagers</h1> <br/>
+        {smurfData.map((smurf) => {
             return(
             <div>
-                <p>{smurf.name} Aka {smurf.nickname} </p>
-                <p>{smurf.position}</p>
+                <h4>{smurf.name} <i>Aka</i> {smurf.nickname} </h4>
+                <h5>{smurf.position}</h5>
                 <p>{smurf.description}</p>
-            </div>)
-        }))}
-
-
-
-    </div>);
+            </div>
+            )
+        })}
+    </div>
+    );
     
 }
 

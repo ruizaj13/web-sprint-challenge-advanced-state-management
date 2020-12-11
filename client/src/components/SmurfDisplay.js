@@ -1,17 +1,19 @@
 import React from 'react';
-import {Smurfs} from './Smurf';
+
+import Smurfs from './Smurf';
 
 const SmurfDisplay = () => {
     
     return(
         <div>
-            
+            <Smurfs/>
         </div>
     )
     
 }
+export default SmurfDisplay
 
-export default SmurfDisplay;
+
 
 //Task List:
 //1. Import in all needed components and library methods.

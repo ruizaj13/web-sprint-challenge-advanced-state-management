@@ -21,6 +21,7 @@ export const FETCH_FAILED = 'FETCH_FAILED';
 export const getSmurf = () => {
 
     return (dispatch => {
+        
         dispatch({type:FETCHING_SMURF})
 
         axios

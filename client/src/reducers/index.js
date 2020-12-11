@@ -3,7 +3,7 @@ import {FETCHING_SMURF, FETCHED_SMURF, FETCH_FAILED } from '../actions/index'
 
 const initialState = {
     isFetching: false,
-    smurfList: [],
+    smurfData: [],
     error:''
 }
 
@@ -11,13 +11,23 @@ export const reducer = (state=initialState, action)=>{
 
     switch(action.type) {
         case(FETCHING_SMURF):
-            return({})
+            return({...state,
+               
+                isFetching: true,
+                error: ''
+            })
 
         case(FETCHED_SMURF):
-            return({})
+            return({...state,
+                isFetching: false,
+                smurfData: action.payload
+            })
 
         case(FETCH_FAILED):
-            return({})
+            return({...state,
+                isFetching: false,
+                error: action.payload
+            })
 
         default:
             return (state)

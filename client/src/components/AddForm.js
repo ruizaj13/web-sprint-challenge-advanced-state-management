@@ -29,6 +29,7 @@ const AddForm = ({addSmurf}) => {
         </form>
     </section>);
     
+    
 }
 
 

@@ -1,9 +1,9 @@
-import {FETCHING_SMURF, FETCHED_SMURF, FETCH_FAILED } from '../actions/index'
+import {FETCHING_SMURF, FETCHED_SMURF, FETCH_FAILED, BIRTHING_SMURF, BIRTHED_SMURF, FAILED_SMURFING } from '../actions/index'
 
 
 const initialState = {
-    isFetching: false,
     smurfData: [],
+    isFetching: false,
     error:''
 }
 
@@ -12,7 +12,6 @@ export const reducer = (state=initialState, action)=>{
     switch(action.type) {
         case(FETCHING_SMURF):
             return({...state,
-               
                 isFetching: true,
                 error: ''
             })
@@ -25,6 +24,24 @@ export const reducer = (state=initialState, action)=>{
 
         case(FETCH_FAILED):
             return({...state,
+                isFetching: false,
+                error: action.payload
+            })
+
+        case(BIRTHING_SMURF):
+            return({...state,
+                isFetching: false,
+                error:''
+            })
+
+        case(BIRTHED_SMURF):
+            return({...state, 
+                isFetching: false,
+                smurfData: action.payload
+            })
+
+        case(FAILED_SMURFING):
+            return ({...state,
                 isFetching: false,
                 error: action.payload
             })

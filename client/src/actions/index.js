@@ -13,3 +13,11 @@ import axios from 'axios';
 //3. Add set error text action:
 //              - return action object setting error text
 //4. Any other actions you deem nessiary to complete application.
+
+export getSmurf = () => {
+
+    return (dispatch => {
+        
+    })
+
+}

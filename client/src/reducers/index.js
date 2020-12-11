@@ -1,13 +1,32 @@
+import {FETCHING_SMURF, FETCHED_SMURF, FETCH_FAILED } from '../actions/index'
 
 
-
-export const initialState = {
+const initialState = {
+    isFetching: false,
+    smurfList: [],
+    error:''
 }
 
-const reducer = ()=>{
+export const reducer = (state=initialState, action)=>{
+
+    switch(action.type) {
+        case(FETCHING_SMURF):
+            return({})
+
+        case(FETCHED_SMURF):
+            return({})
+
+        case(FETCH_FAILED):
+            return({})
+
+        default:
+            return (state)
+        
+    }
+
 }
 
-export default reducer;
+
 
 //Task List:
 //1. Add in the initialState needed to hold: 

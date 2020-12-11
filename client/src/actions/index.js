@@ -1,4 +1,8 @@
 import axios from 'axios';
+export const FETCHING_SMURF = 'FETCHING_SMURF';
+export const FETCHED_SMURF = 'FETCHED_SMURF';
+export const FETCH_FAILED = 'FETCH_FAILED';
+
 
 //Task List:
 //1. Add fetch smurfs action: 
@@ -14,10 +18,19 @@ import axios from 'axios';
 //              - return action object setting error text
 //4. Any other actions you deem nessiary to complete application.
 
-export getSmurf = () => {
+export const getSmurf = () => {
 
     return (dispatch => {
-        
+        dispatch({type:FETCHING_SMURF})
+
+        axios
+            .get('http://localhost:3333/smurfs')
+            .then(res => {
+                dispatch({type:FETCHED_SMURF, payload:res.data})
+            })
+            .catch(err => {
+                dispatch({type:FETCH_FAILED, payload:err.message})
+            })
     })
 
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 class AddForm extends React.Component {
 
@@ -9,6 +9,10 @@ class AddForm extends React.Component {
                 <div className="form-group">
                     <label htmlFor="name">Name:</label><br/>
                     <input onChange={this.handleChange} name="name" id="name" />
+                    <label htmlFor="position">Position:</label><br/>
+                    <input onChange={this.handleChange} name="position" id="position" />
+                    <label htmlFor="desc">Description:</label><br/>
+                    <input onChange={this.handleChange} name="desc" id="desc" />
                 </div>
 
                 <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: </div>

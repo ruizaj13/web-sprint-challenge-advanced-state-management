@@ -23,13 +23,13 @@ export const getSmurf = () => {
     })
 }
 
-export const addSmurf = () => {
+export const addSmurf = body => {
     return (dispatch => {
         
         dispatch({type:BIRTHING_SMURF})
 
         axios  
-            .post('http://localhost:3333/smurfs')
+            .post('http://localhost:3333/smurfs', body )
             .then(res => {
                 dispatch({type:BIRTHED_SMURF, payload:res.data})
             })

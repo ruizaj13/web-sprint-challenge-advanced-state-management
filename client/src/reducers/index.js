@@ -2,9 +2,10 @@ import {FETCHING_SMURF, FETCHED_SMURF, FETCH_FAILED, BIRTHING_SMURF, BIRTHED_SMU
 
 
 const initialState = {
-    smurfData: [],
     isFetching: false,
-    error:''
+    smurfData: [],
+    error:'',
+    id: Date.now()
 }
 
 export const reducer = (state=initialState, action)=>{
@@ -30,14 +31,21 @@ export const reducer = (state=initialState, action)=>{
 
         case(BIRTHING_SMURF):
             return({...state,
-                isFetching: false,
+                isFetching: true,
                 error:''
             })
 
         case(BIRTHED_SMURF):
             return({...state, 
                 isFetching: false,
-                smurfData: action.payload
+                smurfData: [...state.smurfData,
+                    {
+                        name: action.payload.name,
+                        position: action.payload.position,
+                        nickname: action.payload.nickname,
+                        desc: action.payload.desc
+                    }
+                ],
             })
 
         case(FAILED_SMURFING):

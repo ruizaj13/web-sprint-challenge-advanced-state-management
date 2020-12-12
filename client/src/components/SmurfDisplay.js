@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Smurfs from './Smurf';
+import Smurf from './Smurf';
 
 const SmurfDisplay = () => {
     
     return(
         <div>
-            <Smurfs/>
+            <Smurf/>
         </div>
     )
     

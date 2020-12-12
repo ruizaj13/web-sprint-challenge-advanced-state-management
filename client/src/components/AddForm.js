@@ -1,16 +1,25 @@
-import React, {useEffect} from 'react';
+import React, {useRef} from 'react';
 import { connect } from 'react-redux';
 import {addSmurf} from '../actions/index'
 
-const AddForm = ({addSmurf}) => {
 
-    const handleChange = (e) => {
 
-    }
+
+const AddForm = (props) => {
+    const nameRef = useRef()
+    const nickNameRef = useRef()
+    const positionRef = useRef()
+    const descRef = useRef()
+
 
     const submitHandler = (e) => {
-        e.preventDefault()
-        addSmurf()
+        e.preventDefault();
+        props.addSmurf({
+            name: nameRef.current.value,
+            nickName: nickNameRef.current.value,
+            position: positionRef.current.value,
+            desc: descRef.current.value
+        });
     }
     
     return(<section>
@@ -18,23 +27,30 @@ const AddForm = ({addSmurf}) => {
         <form onSubmit={submitHandler}>
             <div className="form-group">
                 <label htmlFor="name">Name:</label><br/>
-                <input onChange={handleChange}  name="name" id="name" />
+                <input  ref={nameRef}  type='text' name="name" id="name" />
+
+                <label htmlFor="nickName">Nick Name:</label><br/>
+                <input   ref={nickNameRef} type='text' name="nickName" id="nickName" />
+
                 <label htmlFor="position">Position:</label><br/>
-                <input onChange={handleChange} name="position" id="position" />
+                <input  ref={positionRef} type='text' name="position" id="position" />
+
                 <label htmlFor="desc">Description:</label><br/>
-                <input onChange={handleChange} name="desc" id="desc" />
+                <input  ref={descRef} type='text' name="desc" id="desc" />
             </div>
-            <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: </div>
-            <button>Submit Smurf</button>
+            {/* <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: </div> */}
+            <button type='submit'>Submit Smurf</button>
         </form>
     </section>);
     
-    
+
 }
 
 
 
-export default connect(mapStateToProps, {addSmurf})(AddForm);
+
+
+export default connect(null, {addSmurf})(AddForm);
 
 //Task List:
 //1. Add in all necessary import components and library methods.

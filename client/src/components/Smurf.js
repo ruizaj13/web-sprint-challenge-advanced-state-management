@@ -2,27 +2,29 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {getSmurf} from '../actions/index'
 
-const Smurfs = ({getSmurf, error, isFetching, smurfData }) => {
+const Smurfs = (props) => {
    
     useEffect(() => {
-        getSmurf()
+        props.getSmurf()
     },[])
 
-    if (error) {
-        return <h2>Loading Error</h2>
-    }
+    // if (error) {
+    //     return <h2>Loading Error</h2>
+    // }
 
-    if (isFetching) {
-        return <h2>Fetching Smurf!</h2>
-    }
+    // if (isFetching) {
+    //     return <h2>Fetching Smurf!</h2>
+    // }
 
 
 
 
     return(
     <div data-testid="smurf" className="card" style={{textAlign: 'center'}}>
-        <h1>Villagers</h1> <br/>
-        {smurfData.map((smurf) => {
+        <h1>Villagers</h1> 
+        {props.isFetching ? <p>Fetching Smurf!</p> : null}
+        {props.error ? <p>{props.error}</p> : null}
+        {props.smurfData.map((smurf) => {
             return(
             <div>
                 <h4>{smurf.name} <i>Aka</i> {smurf.nickname} </h4>
